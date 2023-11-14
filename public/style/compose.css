@@ -1,0 +1,64 @@
+
+/* Add background color and padding to the container */
+.composecontainer {
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+/* Style the title */
+.compose-title {
+  font-size: 36px;
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Style the labels */
+.compose-label {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+  display: block;
+}
+
+/* Style the input fields */
+.compose-input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid #333;
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+/* Style the textarea */
+.compose-textarea {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid #333;
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+/* Style the submit button */
+.compose-submit {
+  background-color: #333;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 18px;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+/* Change the background color of the submit button on hover */
+.compose-submit:hover {
+  background-color: #555;
+}

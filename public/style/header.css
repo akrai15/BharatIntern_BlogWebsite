@@ -1,0 +1,102 @@
+
+/* Navbar styles */
+.navbar {
+  background-color: #fff;
+  border: none;
+  border-radius: 0;
+  margin-bottom: 0;
+  min-height: 50px;
+  padding: 10px 0;
+  position: relative;
+}
+
+.navbar-brand {
+  color: #2e6da4;
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.navbar-nav > li > a {
+  color: #2e6da4;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.navbar-nav > li > a:hover,
+.navbar-nav > li > a:focus {
+  background-color: transparent;
+  color: #fff;
+}
+
+.navbar-nav > li.active > a,
+.navbar-nav > li.active > a:hover,
+.navbar-nav > li.active > a:focus {
+  background-color: #2e6da4;
+  color: #fff;
+}
+
+.navbar-toggle {
+  background-color: transparent;
+  border: none;
+  margin-top: 10px;
+  padding: 10px 15px;
+}
+
+.navbar-toggle .icon-bar {
+  background-color: #2e6da4;
+  border-radius: 1px;
+  display: block;
+  height: 2px;
+  width: 22px;
+  margin-top: 4px;
+  transition: all 0.2s ease-out;
+}
+
+.navbar-toggle .icon-bar:first-child {
+  transform: rotate(45deg) translate(0, -2px);
+}
+
+.navbar-toggle .icon-bar:last-child {
+  transform: rotate(-45deg) translate(0, 2px);
+}
+
+.navbar-toggle.collapsed .icon-bar:first-child,
+.navbar-toggle.collapsed .icon-bar:last-child {
+  transform: none;
+}
+
+/* Responsive styles */
+@media (max-width: 767px) {
+  .navbar-nav > li {
+    display: block;
+    float: none;
+    margin: 0;
+  }
+
+  .navbar-nav > li > a {
+    background-color: #2e6da4;
+    color: #fff;
+    margin-bottom: 5px;
+    text-align: center;
+  }
+
+  .navbar-nav > li > a:hover,
+  .navbar-nav > li > a:focus {
+    background-color: #1d4d7a;
+    color: #fff;
+  }
+
+  .navbar-nav > li.active > a,
+  .navbar-nav > li.active > a:hover,
+  .navbar-nav > li.active > a:focus {
+    background-color: #1d4d7a;
+    color: #fff;
+  }
+
+  .navbar-toggle {
+    margin-top: 0;
+  }
+}
