@@ -105,7 +105,7 @@ app.get('/compose', (req, res) => {
     res.redirect('/login');
     return;
   }
-  res.render('compose');
+  res.render('compose',{ isLoggedIn: req.session.isLoggedIn });
 });
 app.post('/publish', async (req, res) => {
   if (!req.session.isLoggedIn) {
@@ -127,7 +127,7 @@ app.post('/publish', async (req, res) => {
 
 app.get('/blogs', async (req, res) => {
   const posts = await Post.find();
-  res.render('blogs', { posts });
+  res.render('blogs', {isLoggedIn: req.session.isLoggedIn, posts :posts});
 });
 
 
