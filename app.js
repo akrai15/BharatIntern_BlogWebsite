@@ -192,6 +192,19 @@ app.get('/blogs', async (req, res) => {
   const posts = await Post.find();
   res.render('blogs', { isLoggedIn: req.session.isLoggedIn, posts: posts, email: req.session.email });
 });
+app.get('/post/:postId', async (req, res) => {
+  if (!req.session.isLoggedIn) {
+    res.redirect('/login');
+    return;
+  }
+  try {
+    const post = await Post.findById(req.params.postId);
+    res.render('singlepost', { isLoggedIn: req.session.isLoggedIn, post: post });
+  } catch (err) {
+    console.error(err);
+    res.redirect('/blogs');
+  }
+});
 
 
 
