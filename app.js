@@ -22,8 +22,8 @@ mongoose.connect('mongodb://127.0.0.1:27017/blogDB');
 // Define post schema
 const postSchema = new mongoose.Schema({
   title: String,
-  
   content: String,
+  email: String,
 });
 
 // Create Post model
@@ -50,9 +50,10 @@ app.use(session({
 // Routes
 
 // Render login page
-app.get('/', (req, res) => {
+app.get('/', async(req, res) => {
+  const posts = await Post.find();
   
-  res.render('home', { isLoggedIn: req.session.isLoggedIn });
+  res.render('home', { isLoggedIn: req.session.isLoggedIn ,posts:posts});
 });
 app.get('/home', (req, res) => {  
   res.render('home', { isLoggedIn: req.session.isLoggedIn });
@@ -92,8 +93,9 @@ app.post('/login', async (req, res) => {
       return;
     }
     req.session.isLoggedIn = true;
-    
-    res.render('home', { isLoggedIn: req.session.isLoggedIn });
+    req.session.email = foundUser.email;
+    const posts = await Post.find();
+    res.render('home', { isLoggedIn: req.session.isLoggedIn ,posts:posts});
   } catch (err) {
     console.error(err);
     message = 'An error occurred. Please try again.';
@@ -114,7 +116,7 @@ app.post('/publish', async (req, res) => {
   }
 
   const { title, content } = req.body;
-  const newPost = new Post({ title, content });
+  const newPost = new Post({ title, content, email: req.session.email });
 
   try {
     await newPost.save();
@@ -126,8 +128,12 @@ app.post('/publish', async (req, res) => {
 });
 
 app.get('/blogs', async (req, res) => {
+  if (!req.session.isLoggedIn) {
+    res.redirect('/login');
+    return;
+  }
   const posts = await Post.find();
-  res.render('blogs', {isLoggedIn: req.session.isLoggedIn, posts :posts});
+  res.render('blogs', { isLoggedIn: req.session.isLoggedIn, posts: posts, email: req.session.email });
 });
 
 
@@ -145,8 +151,5 @@ const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);
 });
-
-
-
 
 
