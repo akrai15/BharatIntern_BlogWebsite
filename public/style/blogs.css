@@ -2,30 +2,115 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-}
-
-.blog-post {
-    width: 30%;
+    margin-bottom: 50px;
+  }
+  
+  .blog-post {
+    width: 33%;
     margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-.blog-post img {
+    background-color: #fff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .blog-post:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .blog-post img {
     width: 100%;
-    height: auto;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .blog-post h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+.blog-post {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.post-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: justify-content;
+    margin-top: 10px;
+    align-self: center;
+    flex-wrap: wrap; /* Added flex-wrap to wrap buttons to multiple lines */
+    width: 100%; /* Added width to occupy full line */
+}
+
+.post-buttons .button {
+    margin-right: 10px; /* Added margin-right to create space between buttons */
+}
+  
+  .post-buttons .button {
+    display: flex;
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
     border-radius: 5px;
-    margin-bottom: 10px;
-}
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .post-buttons .edit-button {
+    background-color: #4CAF50;
+  }
+  
+  .post-buttons .homeReadMore {
+    background-color:#2196F3;
+    
+    color: #fff;
+  }
+  
+  .post-buttons .edit-button:hover {
+    background-color: #3e8e41;
+  }
+  
+  .post-buttons .read-more {
+    background-color: #2196F3;
+  }
+  
+  .post-buttons .read-more:hover {
+    background-color: #0d8bf2;
+  }
+  
+  .post-buttons .delete-button {
+    background-color: #f44336;
+  }
+  
+  .post-buttons .delete-button:hover {
+    background-color: #c62828;
+  }
+  
+  /* Media query for responsive design */
+  @media (max-width: 768px) {
+    .post-buttons {
+      flex-wrap: wrap;
+    }
+    .blog-post {
+        width: 50%;
+      }
+  }
+  
+  /* Responsive styles */
 
-.blog-post h2 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-}
-
-.blog-post p {
-    font-size: 1rem;
-    line-height: 1.5;
-}
+  
+  @media (max-width: 480px) {
+    .blog-post {
+      width: 100%;
+    }
+  }
