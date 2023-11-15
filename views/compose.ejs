@@ -3,10 +3,10 @@
         <h1 class="compose-title">Compose Blog Post</h1>
         <form action="/publish" method="POST">
             <label for="title" class="compose-label">Title:</label>
-            <input type="text" id="title" name="title" class="compose-input" required>
+            <input type="text" id="title" name="title" class="compose-input" value="<%= title %>" required>
             
             <label for="content" class="compose-label">Content:</label>
-            <textarea id="content" name="content" class="compose-textarea" rows="10" required></textarea>
+            <textarea id="content" name="content" class="compose-textarea" rows="10" required><%= content %></textarea>
             <button type="submit" class="compose-submit">Publish</button>
         </form>
     </div>

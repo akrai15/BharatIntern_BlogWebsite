@@ -102,13 +102,46 @@ app.post('/login', async (req, res) => {
     res.render('login', { message });
   }
 });
+// Render compose page with empty fields
+app.get('/compose/:postId', async (req, res) => {
+  if (!req.session.isLoggedIn) {
+    res.redirect('/login');
+    return;
+  }
+  try {
+    let title = '';
+    let content = '';
+    if (req.params.postId) {
+      const post = await Post.findById(req.params.postId);
+      if (post) {
+        title = post.title;
+        content = post.content;
+      }
+    }
+    res.render('compose', { isLoggedIn: req.session.isLoggedIn, title, content });
+  } catch (err) {
+    console.error(err);
+    res.redirect('/blogs');
+  }
+});
+
 app.get('/compose', (req, res) => {
   if (!req.session.isLoggedIn) {
     res.redirect('/login');
     return;
   }
-  res.render('compose',{ isLoggedIn: req.session.isLoggedIn });
+  res.render('compose', { isLoggedIn: req.session.isLoggedIn, title: '', content: '' });
 });
+
+// Render compose page with post data
+
+
+// Render compose page with post data
+// Assuming you want to capture the postId from the URL, change /compose/postId to /compose/:postId
+
+
+
+// Publish or update a post
 app.post('/publish', async (req, res) => {
   if (!req.session.isLoggedIn) {
     res.redirect('/login');
@@ -116,10 +149,17 @@ app.post('/publish', async (req, res) => {
   }
 
   const { title, content } = req.body;
-  const newPost = new Post({ title, content, email: req.session.email });
+  const postData = { title, content, email: req.session.email };
 
   try {
-    await newPost.save();
+    if (req.body.id) {
+      // Update existing post
+      await Post.findByIdAndUpdate(req.body.id, postData);
+    } else {
+      // Create new post
+      const newPost = new Post(postData);
+      await newPost.save();
+    }
     res.redirect('/blogs');
   } catch (err) {
     console.error(err);
