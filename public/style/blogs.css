@@ -1,12 +1,15 @@
+
+
+
 .blog-posts {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    flex-wrap:wrap;
+    justify-content:left;
     margin-bottom: 50px;
   }
   
   .blog-post {
-    width: 33%;
+    width: 30%;
     margin-bottom: 20px;
     margin-top: 20px;
     margin-left: 10px;
