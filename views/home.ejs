@@ -19,15 +19,20 @@
 <a href="/compose"><button>Compose New Blog</button></a>
 
 <% if (isLoggedIn) { %>
-    <div class="blog-container">
+    <% if (posts.length === 0) { %>
         <div class="blog-header">
-            <h2>Latest Posts</h2>
-            <a href="#latest-post"><button>View All</button></a>
+            
+            <a href="compose"><button>NO POST AVAILABLE</button></a>
+        </div>
+    <% }
+   
+             else { %>
+                <div class="blog-container">
+        <div class="blog-header">
+            
+            <a href="#latest-post"><button>View Latest Post</button></a>
         </div>
         <div class="blog-posts" id="latest-post">
-            <% if (posts.length === 0) { %>
-                <p>No posts available</p>
-            <% } else { %>
                 <% for (let post of posts) { %>
                     
                         <div class="blog-post">
