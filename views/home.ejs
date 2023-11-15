@@ -22,9 +22,9 @@
     <div class="blog-container">
         <div class="blog-header">
             <h2>Latest Posts</h2>
-            <a href="#blog-posts"><button>View All</button></a>
+            <a href="#latest-post"><button>View All</button></a>
         </div>
-        <div class="blog-posts">
+        <div class="blog-posts" id="latest-post">
             <% if (posts.length === 0) { %>
                 <p>No posts available</p>
             <% } else { %>
@@ -45,14 +45,13 @@
                 <% } %>
             <% } %>
         </div>
-        
-    </div>
-<% } else { %>
-    <div class="login-container">
-        <
-        <a href="login"><button>Login to View Posts</button></a>
-    </div>
-<% } %>
+
+        </div>
+        <% } else { %>
+        <div class="login-container">
+            <a href="login"><button>Login to View Posts</button></a>
+        </div>
+        <% } %>
 
 
 
