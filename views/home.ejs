@@ -17,28 +17,44 @@
 </div>
 
 <a href="/compose"><button>Compose New Blog</button></a>
-<a href="#blog-posts"><button>View All Blogs</button></a>
-
-
 
 <% if (isLoggedIn) { %>
-    <div class="blog-posts" id="blog-posts">
-        <% if (!posts) { %>
-
-        <% } else if (posts.length === 0) { %>
-            <p>No posts available</p>
-        <% } else { %>
-            <% for (let post of posts) { %>
-
+    <div class="blog-container">
+        <div class="blog-header">
+            <h2>Latest Posts</h2>
+            <a href="#blog-posts"><button>View All</button></a>
+        </div>
+        <div class="blog-posts" id="blog-posts">
+            <% if (!posts) { %>
+                <p>No posts available</p>
+            <% } else if (posts.length === 0) { %>
+                <p>No posts available</p>
+            <% } else { %>
+                <% for (let post of posts) { %>
                     <div class="blog-post">
                         <img src="<%= post.image %>" alt="<%= post.title %>">
-                        <h2><%= post.title %></h2>
-                        <p><%= post.content %></p>
+                        <h3><%= post.title %></h3>
+                        <p><%= post.content.substring(0, 200) + '...' %></p>
+                        <a href="/posts/<%= post._id %>">Read More</a>
                     </div>
+                <% } %>
             <% } %>
-        <% } %>
+        </div>
+    </div>
+<% } else { %>
+    <div class="login-container">
+        <
+        <a href="login"><button>Login to View Posts</button></a>
     </div>
 <% } %>
+
+
+
+
+
+
+    
+
 
 
 
