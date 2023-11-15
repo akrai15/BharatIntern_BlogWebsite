@@ -104,6 +104,8 @@ app.post('/login', async (req, res) => {
 });
 // Render compose page with empty fields
 app.get('/compose/:postId', async (req, res) => {
+  console.log("hello");
+
   if (!req.session.isLoggedIn) {
     res.redirect('/login');
     return;
@@ -127,11 +129,12 @@ app.get('/compose/:postId', async (req, res) => {
 });
 
 app.get('/compose', (req, res) => {
+  console.log("bye");
   if (!req.session.isLoggedIn) {
     res.redirect('/login');
     return;
   }
-  res.render('compose', { isLoggedIn: req.session.isLoggedIn, title: '', content: '' });
+  res.render('compose', { isLoggedIn: req.session.isLoggedIn, title: '', content: '' ,id:''});
 });
 
 // Render compose page with post data
