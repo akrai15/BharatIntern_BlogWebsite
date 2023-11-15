@@ -1,32 +1,37 @@
 <%- include("header"); -%>
 
-<% if (posts.length === 0) { %>
-    <div class="blog-header">
+
+
+    <% if (posts.length > 0) { %>
         
-        <a href="compose"><button>NO POST AVAILABLE</button></a>
-    </div>
-<% }
-
-     else { %>
-<div class="blog-posts">
-
-        <% for (let post of posts) { %>
-            <% if (post.email === email) { %>
-                <div class="blog-post">
-                    
-                    <h2><%= post.title %></h2>
-                    <p><%= post.content.substring(0, 300)+'...' %></p>
-                    <div class="post-buttons">
-                        <a href="/compose/<%= post._id %>" class="button edit-button">Edit</a>
-                        <a href="/post/<%= post._id %>" class="button read-more">Read More</a>
-                        <a href="/delete/<%= post._id %>" class="button delete-button">Delete</a>
+            <% let flag = false; %>
+            <div class="blog-posts">
+            <% for (let post of posts) { %>
+                <% if (post.email === email) { %>
+                    <% flag = true; %>
+                    <div class="blog-post">
+                        <h2><%= post.title %></h2>
+                        <p><%= post.content.substring(0, 300)+'...' %></p>
+                        <div class="post-buttons">
+                            <a href="/compose/<%= post._id %>" class="button edit-button">Edit</a>
+                            <a href="/post/<%= post._id %>" class="button read-more">Read More</a>
+                            <a href="/delete/<%= post._id %>" class="button delete-button">Delete</a>
+                        </div>
                     </div>
-                    
+                <% } %>
                 </div>
             <% } %>
-        <% } %>
+            <% if (flag === false) { %>
+                <div class="blog-header">
+                    <a href="compose"><button>NO POST AVAILABLE</button></a>
+                </div>
+            <% } %>
+        
+    <% } else { %>
+        <div class="blog-header">
+            <a href="compose"><button>NO POST AVAILABLE</button></a>
+        </div>
     <% } %>
-</div>
 
 
 
