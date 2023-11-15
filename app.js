@@ -136,7 +136,19 @@ app.get('/compose', (req, res) => {
   }
   res.render('compose', { isLoggedIn: req.session.isLoggedIn, title: '', content: '' ,id:''});
 });
-
+app.get('/delete/:postId', async (req, res) => {
+  if (!req.session.isLoggedIn) {
+    res.redirect('/login');
+    return;
+  }
+  try {
+    await Post.findByIdAndDelete(req.params.postId);
+    res.redirect('/blogs');
+  } catch (err) {
+    console.error(err);
+    res.redirect('/blogs');
+  }
+});
 // Render compose page with post data
 
 
