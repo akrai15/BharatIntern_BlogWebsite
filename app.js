@@ -116,9 +116,10 @@ app.get('/compose/:postId', async (req, res) => {
       if (post) {
         title = post.title;
         content = post.content;
+        id=post.id;
       }
     }
-    res.render('compose', { isLoggedIn: req.session.isLoggedIn, title, content });
+    res.render('compose', { isLoggedIn: req.session.isLoggedIn, title, content ,id});
   } catch (err) {
     console.error(err);
     res.redirect('/blogs');
@@ -147,12 +148,13 @@ app.post('/publish', async (req, res) => {
     res.redirect('/login');
     return;
   }
-
+  
   const { title, content } = req.body;
   const postData = { title, content, email: req.session.email };
 
   try {
     if (req.body.id) {
+      console.log(req.body.id);
       // Update existing post
       await Post.findByIdAndUpdate(req.body.id, postData);
     } else {
