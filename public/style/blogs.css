@@ -4,11 +4,12 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: left;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     
   }
   
   .blog-post {
+    background-image: url("../img6.png");
     display: flex;
     flex-direction: column;
     justify-content: space-between;
