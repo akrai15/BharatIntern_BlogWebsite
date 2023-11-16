@@ -131,7 +131,8 @@ app.get('/compose/:postId', async (req, res) => {
 app.get('/compose', (req, res) => {
   console.log("bye");
   if (!req.session.isLoggedIn) {
-    res.redirect('/login');
+    let message = 'Please login to continue';
+    res.render('login',{message:message});
     return;
   }
   res.render('compose', { isLoggedIn: req.session.isLoggedIn, title: '', content: '' ,id:''});
@@ -186,7 +187,8 @@ app.post('/publish', async (req, res) => {
 
 app.get('/blogs', async (req, res) => {
   if (!req.session.isLoggedIn) {
-    res.redirect('/login');
+    let message = 'Please login to continue';
+    res.render('login',{message:message});
     return;
   }
   const posts = await Post.find();
