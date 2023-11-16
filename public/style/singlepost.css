@@ -2,14 +2,21 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+
+    background-image: url('../img17.jpg');
+    background-repeat: repeat;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+    
+    
+   
+    
 }
 
 .post-image {
-    background-image: url('../img17.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    
     word-wrap: break-word;
     display: flex;
     flex-direction: column;
