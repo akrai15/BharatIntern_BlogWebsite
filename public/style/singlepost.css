@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
+    min-height: 500px;
     background-image: url('../img17.jpg');
     background-repeat: repeat;
     margin-bottom: 30px;
