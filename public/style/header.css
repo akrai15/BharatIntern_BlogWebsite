@@ -4,6 +4,9 @@ body {
   font-family: Arial, sans-serif;
   background-color: #f2f2f2;
 }
+.bodycontainer{
+  min-height: 500px;
+}
 .navbar {
   background-color: #fff;
   border: none;

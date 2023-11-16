@@ -3,6 +3,7 @@
     flex-wrap: wrap;
     justify-content: left;
     margin-bottom: 50px;
+    
   }
   
   .blog-post {
@@ -34,6 +35,10 @@
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 10px;
+    word-wrap: break-word;
+  }
+  .blog-post p{
+    word-wrap: break-word;
   }
   
 .blog-post {
