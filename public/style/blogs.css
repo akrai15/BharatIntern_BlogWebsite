@@ -1,4 +1,6 @@
 .blog-posts {
+  background-image: url("../img3.png");
+  background-repeat: repeat;
     display: flex;
     flex-wrap: wrap;
     justify-content: left;
