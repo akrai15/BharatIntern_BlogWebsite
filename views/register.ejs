@@ -1,11 +1,13 @@
 <%- include("header"); -%>
 <div class="login-container">
-  <h2>Register</h2>
 <div class="form-container">
     <form action="/register" method="POST">
       <% if (typeof message !== 'undefined') { %>
         <p><%= message %></p>
       <% } %>
+    <h2>Register</h2>
+      
+      
       
       <label for="username">Username</label>
       <input type="text" id="username" name="username" required>

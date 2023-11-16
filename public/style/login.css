@@ -1,12 +1,28 @@
 
+.login-container{
+  background-image: url("../img6.png");
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 .form-container {
-  width: 100%;
+  background-image: url("../img13.png");
+  width: 90%;
   max-width: 400px;
   margin: 0 auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: red;
 }
 
-.login-container h2 {
+.form-container h2 {
   text-align: center;
+}
+.form-container form{
+  width: 90%;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 label {
