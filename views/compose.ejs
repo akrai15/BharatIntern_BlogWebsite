@@ -1,7 +1,10 @@
 <%- include("header"); -%>
     <div class="composecontainer">
-        <h1 class="compose-title">Compose Blog Post</h1>
+        <div class="form-container">
         <form action="/publish" method="POST">
+        <h1 class="compose-title">Compose Blog Post</h1>
+
+            
             <input type="hidden" id="id" name="id" value="<%= id %>">
             <label for="title" class="compose-label">Title:</label>
             <input type="text" id="title" name="title" class="compose-input" value="<%= title %>" required>
@@ -10,6 +13,8 @@
             <textarea id="content" name="content" class="compose-textarea" rows="10" required><%= content %></textarea>
             <button type="submit" class="compose-submit">Publish</button>
         </form>
+        </div>
+        
     </div>
     </div>
  
