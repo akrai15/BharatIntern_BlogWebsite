@@ -1,11 +1,12 @@
 <%- include("header"); -%>
-
- 
+<div class="login-container">
+  <h2>Register</h2>
+<div class="form-container">
     <form action="/register" method="POST">
       <% if (typeof message !== 'undefined') { %>
         <p><%= message %></p>
       <% } %>
-      <h2>Register</h2>
+      
       <label for="username">Username</label>
       <input type="text" id="username" name="username" required>
       <label for="email">Email</label>
@@ -14,4 +15,6 @@
       <input type="password" id="password" name="password" required>
       <button type="submit">Register</button>
     </form>
+  </div>
+  </div>
  

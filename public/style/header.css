@@ -1,5 +1,9 @@
 
 /* Navbar styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+}
 .navbar {
   background-color: #fff;
   border: none;
