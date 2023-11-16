@@ -42,3 +42,38 @@ p.message {
   text-align: center;
   color: #4CAF50;
 }
+
+form-container button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+}
+
+.form-container button:hover {
+  background: #03e9f4;
+  color: black;
+  border: 1px solid black;
+  animation: shadowSnake 1s ease-in-out infinite;
+}
+
+@keyframes shadowSnake {
+  0% {
+    box-shadow: 0 0 0 2px red;
+  }
+  25% {
+    box-shadow: 0 5px 0 2px red;
+  }
+  50% {
+    box-shadow: 5px 5px 0 2px red;
+  }
+  75% {
+    box-shadow: 5px 0 0 2px red;
+  }
+  100% {
+    box-shadow: 0 0 0 2px red;
+  }
+}
