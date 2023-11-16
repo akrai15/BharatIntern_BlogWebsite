@@ -104,7 +104,7 @@ app.post('/login', async (req, res) => {
 });
 // Render compose page with empty fields
 app.get('/compose/:postId', async (req, res) => {
-  console.log("hello");
+  
 
   if (!req.session.isLoggedIn) {
     res.redirect('/login');
@@ -129,7 +129,7 @@ app.get('/compose/:postId', async (req, res) => {
 });
 
 app.get('/compose', (req, res) => {
-  console.log("bye");
+  
   if (!req.session.isLoggedIn) {
     let message = 'Please login to continue';
     res.render('login',{message:message});
@@ -170,7 +170,7 @@ app.post('/publish', async (req, res) => {
 
   try {
     if (req.body.id) {
-      console.log(req.body.id);
+      
       // Update existing post
       await Post.findByIdAndUpdate(req.body.id, postData);
     } else {
