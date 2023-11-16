@@ -49,7 +49,7 @@
     .right-div {
         flex: none;
         width: 100%;
-        padding: 0;
+        padding: 10px;
     }
 
     .homecontainer h1 {
@@ -63,7 +63,7 @@
     }
 
     .homecontainer p {
-        font-size: 1rem;
+        font-size: 1.5rem;
         margin-bottom: 10px;
     }
 }
