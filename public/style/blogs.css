@@ -110,15 +110,16 @@
       flex-wrap: wrap;
     }
     .blog-post {
+
       margin-bottom: 20px;
     margin-top: 20px;
     margin-left: 25px;
     margin-right: 25px;
-        width: 40% ;
+        width: 29% ;
       }
   }
   /* Media query for responsive design */
-  @media (max-width: 1000px) {
+  @media (max-width: 1200px) {
     .post-buttons {
       flex-wrap: wrap;
     }
@@ -128,7 +129,7 @@
     margin-left: 20px;
     margin-right: 20px;
       
-        width: 45% ;
+        width: 28% ;
       }
   }
   
