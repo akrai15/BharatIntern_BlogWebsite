@@ -4,6 +4,7 @@ const session = require('express-session');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 // Create express app
 const app = express();
@@ -12,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 // Connect to MongoDB using Mongoose
-mongoose.connect('mongodb://127.0.0.1:27017/blogDB');
+mongoose.connect(process.env.MONGO_URI );
 
 
 
