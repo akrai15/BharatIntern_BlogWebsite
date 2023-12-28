@@ -53,7 +53,7 @@ app.use(session({
 // Render login page
 app.get('/', async(req, res) => {
   const posts = await Post.find();
-  
+  console.log("okkkkay");
   res.render('home', { isLoggedIn: req.session.isLoggedIn ,posts:posts});
 });
 app.get('/home', (req, res) => {  
