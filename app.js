@@ -13,7 +13,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 // Connect to MongoDB using Mongoose
-mongoose.connect(process.env.MONGO_URI );
+mongoose.connect(process.env.MONGO_URI ).then(() => {
+  console.log('Connected to MongoDB');
+}).catch(err => { console.error(err); });
 
 
 
@@ -27,7 +29,6 @@ const postSchema = new mongoose.Schema({
   email: String,
 });
 
-// Create Post model
 const Post = mongoose.model('Post', postSchema);
 
 const userSchema = new mongoose.Schema({
@@ -223,6 +224,7 @@ app.get('/logout', (req, res) => {
 const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);
+  
 });
 
 
